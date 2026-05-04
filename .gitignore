@@ -1,0 +1,39 @@
+# Arlith Monorepo Git Ignore
+
+# Environment Variables (Sensitive)
+.env
+.env.*
+
+# Flutter/Dart artifacts
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+
+# Android artifacts
+**/*.iml
+**.jks
+**.keystore
+**/google-services.json
+
+# iOS/macOS artifacts
+**/Pods/
+**/DerivedData/
+**/Frameworks/
+.LSOverride
+**/Icon?
+.DS_Store
+
+# IDE - IntelliJ
+.idea/
+*.iml
+*.iws
+
+# IDE - VSCode
+.vscode/
+
+# Local configuration
+local.properties
