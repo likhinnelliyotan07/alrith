@@ -86,9 +86,8 @@ class _LoginPageState extends State<LoginPage> {
                                 keyboardType: TextInputType.number,
                               ),
                               SizedBox(height: 32.h),
-                              ArlithButton(
+                              ArlithGradientButton(
                                 text: AppStrings.verifyOtp,
-                                isLoading: state is AuthLoading,
                                 onPressed: () {
                                   context.read<AuthBloc>().add(
                                         OTPVerificationRequested(
@@ -100,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ] else if (state is NeedsRegistration) ...[
                               SizedBox(height: 32.h),
-                              ArlithButton(
+                              ArlithGradientButton(
                                 text: 'Complete Registration',
                                 onPressed: () {
                                   context.push('/signup', extra: state.phone);
@@ -140,9 +139,8 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ],
                           SizedBox(height: 32.h),
-                          ArlithButton(
+                          ArlithGradientButton(
                             text: _isPhoneLogin ? AppStrings.sendOtp : AppStrings.login,
-                            isLoading: state is AuthLoading,
                             onPressed: () {
                               if (_formKey.currentState?.validate() ?? false) {
                                 if (_isPhoneLogin) {

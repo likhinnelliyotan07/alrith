@@ -1,0 +1,6 @@
+id,full_name,email,phone,role,is_approved,created_at
+c0eebc99-9c0b-4ef8-bb6d-6bb9bd380c11,Sarah Johnson,sarah.parent@example.com,+1234567900,parent,true,2026-05-04T10:00:00Z
+c0eebc99-9c0b-4ef8-bb6d-6bb9bd380c12,David Miller,david.p@example.com,+1234567901,parent,true,2026-05-04T10:00:00Z
+c0eebc99-9c0b-4ef8-bb6d-6bb9bd380c13,Linda Garcia,linda.p@example.com,+1234567902,parent,true,2026-05-04T10:00:00Z
+c0eebc99-9c0b-4ef8-bb6d-6bb9bd380c14,James Martinez,james.p@example.com,+1234567903,parent,true,2026-05-04T10:00:00Z
+c0eebc99-9c0b-4ef8-bb6d-6bb9bd380c15,Karen Robinson,karen.p@example.com,+1234567904,parent,true,2026-05-04T10:00:00Z

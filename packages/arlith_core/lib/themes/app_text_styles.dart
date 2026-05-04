@@ -19,6 +19,14 @@ class AppTextStyles {
             : AppColors.textPrimaryDark,
       );
 
+  static TextStyle h3(BuildContext context) => TextStyle(
+        fontSize: 20.sp,
+        fontWeight: FontWeight.bold,
+        color: Theme.of(context).brightness == Brightness.light
+            ? AppColors.textPrimaryLight
+            : AppColors.textPrimaryDark,
+      );
+
   static TextStyle bodyLarge(BuildContext context) => TextStyle(
         fontSize: 16.sp,
         fontWeight: FontWeight.normal,
@@ -29,6 +37,14 @@ class AppTextStyles {
 
   static TextStyle bodyMedium(BuildContext context) => TextStyle(
         fontSize: 14.sp,
+        fontWeight: FontWeight.normal,
+        color: Theme.of(context).brightness == Brightness.light
+            ? AppColors.textSecondaryLight
+            : AppColors.textSecondaryDark,
+      );
+
+  static TextStyle bodySmall(BuildContext context) => TextStyle(
+        fontSize: 12.sp,
         fontWeight: FontWeight.normal,
         color: Theme.of(context).brightness == Brightness.light
             ? AppColors.textSecondaryLight

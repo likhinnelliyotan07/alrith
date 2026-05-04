@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:arlith_core/arlith_core.dart';
+import 'package:arlith_core/features/user/presentation/pages/profile_page.dart';
+import 'tabs/approvals_tab.dart';
+import 'tabs/dashboard_tab.dart';
+import 'tabs/education_tab.dart';
+import 'tabs/users_tab.dart';
 
 class AdminHomePage extends StatelessWidget {
   const AdminHomePage({super.key});
@@ -8,73 +12,67 @@ class AdminHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => UserBloc(getIt<UserRepository>())..add(LoadPendingTeachers()),
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(AppStrings.dashboardAdmin, style: AppTextStyles.h2(context)),
-          actions: [
-            IconButton(
-              icon: Icon(Icons.person, size: 24.r),
-              onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute(builder: (_) => const ProfilePage()),
-              ),
-            ),
+      create: (context) => NavigationCubit(),
+      child: const _AdminHomeScaffold(),
+    );
+  }
+}
+
+class _AdminHomeScaffold extends StatelessWidget {
+  const _AdminHomeScaffold();
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<NavigationCubit, int>(
+      builder: (context, currentIndex) {
+        return DashboardScaffold(
+          title: _getTitle(currentIndex),
+          currentIndex: currentIndex,
+          onNavTap: (index) => context.read<NavigationCubit>().setIndex(index),
+          navItems: const [
+            (icon: Icons.dashboard_outlined, activeIcon: Icons.dashboard, label: AppStrings.navigationHome),
+            (icon: Icons.how_to_reg_outlined, activeIcon: Icons.how_to_reg, label: AppStrings.approve),
+            (icon: Icons.school_outlined, activeIcon: Icons.school, label: AppStrings.classes),
+            (icon: Icons.people_outline, activeIcon: Icons.people, label: AppStrings.navigationUsers),
+            (icon: Icons.person_outline, activeIcon: Icons.person, label: AppStrings.navigationProfile),
           ],
-        ),
-        body: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.all(16.w),
-              child: Text(
-                AppStrings.pendingApprovals,
-                style: AppTextStyles.bodyLarge(context).copyWith(fontWeight: FontWeight.bold),
-              ),
-            ),
-            Expanded(
-              child: BlocBuilder<UserBloc, UserState>(
-                builder: (context, state) {
-                  if (state is UserLoading) {
-                    return const Center(child: CircularProgressIndicator());
-                  }
-                  if (state is UsersLoaded) {
-                    if (state.users.isEmpty) {
-                      return Center(
-                        child: Text(AppStrings.noPendingApprovals, style: AppTextStyles.bodyMedium(context)),
-                      );
-                    }
-                    return ListView.builder(
-                      itemCount: state.users.length,
-                      padding: EdgeInsets.symmetric(horizontal: 16.w),
-                      itemBuilder: (context, index) {
-                        final user = state.users[index];
-                        return Card(
-                          margin: EdgeInsets.only(bottom: 12.h),
-                          child: ListTile(
-                            title: Text(user.fullName, style: AppTextStyles.bodyLarge(context)),
-                            subtitle: Text(user.email, style: AppTextStyles.bodyMedium(context)),
-                            trailing: SizedBox(
-                              width: 100.w,
-                              child: ArlithButton(
-                                text: AppStrings.approve,
-                                onPressed: () {
-                                  context.read<UserBloc>().add(ApproveTeacherRequested(user.id));
-                                },
-                              ),
-                            ),
-                          ),
-                        );
-                      },
-                    );
-                  }
-                  if (state is UserError) {
-                    return Center(child: Text('Error: ${state.message}'));
-                  }
-                  return const SizedBox();
-                },
-              ),
-            ),
-          ],
-        ),
+          floatingActionButton: currentIndex == 2 ? _buildEducationFAB(context) : null,
+          body: _buildBody(currentIndex),
+        );
+      },
+    );
+  }
+
+  String _getTitle(int currentIndex) {
+    switch (currentIndex) {
+      case 0: return AppStrings.dashboardAdmin;
+      case 1: return AppStrings.pendingApprovals;
+      case 2: return AppStrings.classes;
+      case 3: return AppStrings.allUsers;
+      case 4: return AppStrings.myProfile;
+      default: return AppStrings.appName;
+    }
+  }
+
+  Widget _buildBody(int currentIndex) {
+    switch (currentIndex) {
+      case 0: return const DashboardTab();
+      case 1: return const ApprovalsTab();
+      case 2: return const EducationTab();
+      case 3: return const UsersTab();
+      case 4: return const ProfilePage();
+      default: return const SizedBox();
+    }
+  }
+
+  Widget _buildEducationFAB(BuildContext context) {
+    return FloatingActionButton(
+      onPressed: () {}, // Implementation moved to shared logic
+      backgroundColor: AppColors.primary,
+      child: Container(
+        width: 60, height: 60,
+        decoration: const BoxDecoration(shape: BoxShape.circle, gradient: AppColors.primaryGradient),
+        child: const Icon(Icons.add, color: Colors.white),
       ),
     );
   }

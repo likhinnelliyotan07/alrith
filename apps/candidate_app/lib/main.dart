@@ -18,18 +18,26 @@ class CandidateApp extends StatelessWidget {
         BlocProvider(
           create: (context) => AuthBloc(getIt<AuthRepository>())..add(AuthCheckRequested()),
         ),
+        BlocProvider(
+          create: (context) => getIt<ThemeCubit>(),
+        ),
       ],
       child: ScreenUtilInit(
         designSize: const Size(375, 812),
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child) {
-          return MaterialApp.router(
-            title: AppStrings.appName,
-            theme: AppTheme.lightTheme,
-            darkTheme: AppTheme.darkTheme,
-            routerConfig: AppRouter.router,
-            debugShowCheckedModeBanner: false,
+          return BlocBuilder<ThemeCubit, ThemeMode>(
+            builder: (context, themeMode) {
+              return MaterialApp.router(
+                title: AppStrings.appName,
+                theme: AppTheme.lightTheme,
+                darkTheme: AppTheme.darkTheme,
+                themeMode: themeMode,
+                routerConfig: AppRouter.router,
+                debugShowCheckedModeBanner: false,
+              );
+            },
           );
         },
       ),

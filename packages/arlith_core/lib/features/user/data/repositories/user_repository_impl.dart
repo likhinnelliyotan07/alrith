@@ -72,4 +72,48 @@ class UserRepositoryImpl implements UserRepository {
       return Left(e.toString());
     }
   }
+
+  @override
+  Future<Either<String, List<UserProfile>>> getUsersByRole(String role) async {
+    try {
+      final response = await _client
+          .from('profiles')
+          .select()
+          .eq('role', role);
+      final users = (response as List).map((e) => UserProfile.fromJson(e)).toList();
+      return Right(users);
+    } catch (e) {
+      return Left(e.toString());
+    }
+  }
+
+  @override
+  Future<Either<String, Unit>> updateUserProfile(UserProfile user) async {
+    try {
+      await _client.from('profiles').update(user.toJson()).eq('id', user.id);
+      return const Right(unit);
+    } catch (e) {
+      return Left(e.toString());
+    }
+  }
+
+  @override
+  Future<Either<String, Unit>> assignStudentToClass(String studentId, String classId) async {
+    try {
+      await _client.from('profiles').update({'class_id': classId}).eq('id', studentId);
+      return const Right(unit);
+    } catch (e) {
+      return Left(e.toString());
+    }
+  }
+
+  @override
+  Future<Either<String, Unit>> assignUserToSubjects(String userId, List<String> subjectIds) async {
+    try {
+      await _client.from('profiles').update({'subject_ids': subjectIds}).eq('id', userId);
+      return const Right(unit);
+    } catch (e) {
+      return Left(e.toString());
+    }
+  }
 }

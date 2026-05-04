@@ -9,8 +9,15 @@ export 'utils/app_logger.dart';
 export 'services/supabase_service.dart';
 export 'models/user_profile.dart';
 export 'models/user_role.dart';
+export 'models/education_models.dart';
 export 'widgets/arlith_button.dart';
+export 'widgets/dashboard_scaffold.dart';
+export 'widgets/user_card.dart';
+export 'widgets/user_selection_dialog.dart';
 export 'widgets/arlith_text_field.dart';
+export 'widgets/arlith_shimmer.dart';
+export 'widgets/arlith_gradient_button.dart';
+export 'widgets/education_selection_dialog.dart';
 export 'injection.dart';
 
 // Auth Feature
@@ -23,10 +30,14 @@ export 'features/auth/domain/repositories/auth_repository.dart';
 
 // User Feature
 export 'features/user/presentation/bloc/user_bloc.dart';
+export 'core/theme/theme_cubit.dart';
+export 'core/navigation/navigation_cubit.dart';
 export 'features/user/presentation/bloc/user_event.dart';
 export 'features/user/presentation/bloc/user_state.dart';
 export 'features/user/domain/repositories/user_repository.dart';
 export 'features/user/presentation/pages/profile_page.dart';
+export 'features/education/presentation/bloc/education_bloc.dart';
+export 'features/education/domain/repositories/education_repository.dart';
 
 // Packages
 export 'package:flutter_bloc/flutter_bloc.dart';

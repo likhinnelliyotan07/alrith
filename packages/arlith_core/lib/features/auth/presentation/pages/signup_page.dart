@@ -94,9 +94,8 @@ class _SignupPageState extends State<SignupPage> {
                 SizedBox(height: 32.h),
                 BlocBuilder<AuthBloc, AuthState>(
                   builder: (context, state) {
-                    return ArlithButton(
+                    return ArlithGradientButton(
                       text: AppStrings.createAccount,
-                      isLoading: state is AuthLoading,
                       onPressed: () {
                         if (_formKey.currentState?.validate() ?? false) {
                           context.read<AuthBloc>().add(

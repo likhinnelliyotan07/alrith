@@ -1,0 +1,6 @@
+id,full_name,email,phone,role,is_approved,created_at
+b0eebc99-9c0b-4ef8-bb6d-6bb9bd380b11,Alice Johnson,alice.student@example.com,+1234567800,candidate,true,2026-05-04T10:00:00Z
+b0eebc99-9c0b-4ef8-bb6d-6bb9bd380b12,Bob Miller,bob.s@example.com,+1234567801,candidate,true,2026-05-04T10:00:00Z
+b0eebc99-9c0b-4ef8-bb6d-6bb9bd380b13,Charlie Garcia,charlie.g@example.com,+1234567802,candidate,true,2026-05-04T10:00:00Z
+b0eebc99-9c0b-4ef8-bb6d-6bb9bd380b14,Diana Martinez,diana.m@example.com,+1234567803,candidate,true,2026-05-04T10:00:00Z
+b0eebc99-9c0b-4ef8-bb6d-6bb9bd380b15,Ethan Robinson,ethan.r@example.com,+1234567804,candidate,true,2026-05-04T10:00:00Z

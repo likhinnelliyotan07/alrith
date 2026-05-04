@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import '../../../../models/user_profile.dart';
+import 'package:arlith_core/models/user_profile.dart';
 
 abstract class UserState extends Equatable {
   @override
@@ -21,3 +21,10 @@ class UserError extends UserState {
   List<Object?> get props => [message];
 }
 class TeacherApproved extends UserState {}
+
+class UserActionSuccess extends UserState {
+  final String message;
+  UserActionSuccess(this.message);
+  @override
+  List<Object?> get props => [message];
+}

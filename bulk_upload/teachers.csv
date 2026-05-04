@@ -1,0 +1,6 @@
+id,full_name,email,phone,role,is_approved,created_at
+a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11,John Doe,john.teacher@example.com,+1234567890,teacher,true,2026-05-04T10:00:00Z
+a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a12,Jane Smith,jane.teacher@example.com,+1234567891,teacher,false,2026-05-04T10:00:00Z
+a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a13,Robert Brown,robert.t@example.com,+1234567892,teacher,true,2026-05-04T10:00:00Z
+a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a14,Emily Davis,emily.teacher@example.com,+1234567893,teacher,false,2026-05-04T10:00:00Z
+a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a15,Michael Wilson,michael.w@example.com,+1234567894,teacher,true,2026-05-04T10:00:00Z

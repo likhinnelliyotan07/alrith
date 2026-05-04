@@ -9,6 +9,7 @@ class AppTheme {
       brightness: Brightness.light,
       primaryColor: AppColors.primary,
       scaffoldBackgroundColor: AppColors.backgroundLight,
+      cardColor: AppColors.surfaceLight,
       colorScheme: const ColorScheme.light(
         primary: AppColors.primary,
         secondary: AppColors.secondary,
@@ -16,19 +17,15 @@ class AppTheme {
         error: AppColors.error,
       ),
       textTheme: GoogleFonts.outfitTextTheme(ThemeData.light().textTheme).copyWith(
-        displayLarge: const TextStyle(color: AppColors.textPrimaryLight),
+        displayLarge: const TextStyle(color: AppColors.textPrimaryLight, fontWeight: FontWeight.bold),
         bodyLarge: const TextStyle(color: AppColors.textPrimaryLight),
         bodyMedium: const TextStyle(color: AppColors.textSecondaryLight),
       ),
-      elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.primary,
-          foregroundColor: Colors.white,
-          minimumSize: const Size(double.infinity, 50),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-        ),
+      appBarTheme: const AppBarTheme(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        centerTitle: false,
+        iconTheme: IconThemeData(color: AppColors.textPrimaryLight),
       ),
     );
   }
@@ -37,28 +34,25 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
-      primaryColor: AppColors.primary,
+      primaryColor: AppColors.primaryDark,
       scaffoldBackgroundColor: AppColors.backgroundDark,
+      cardColor: AppColors.surfaceDark,
       colorScheme: const ColorScheme.dark(
-        primary: AppColors.primary,
-        secondary: AppColors.secondary,
+        primary: AppColors.primaryDark,
+        secondary: AppColors.secondaryDark,
         surface: AppColors.surfaceDark,
         error: AppColors.error,
       ),
       textTheme: GoogleFonts.outfitTextTheme(ThemeData.dark().textTheme).copyWith(
-        displayLarge: const TextStyle(color: AppColors.textPrimaryDark),
+        displayLarge: const TextStyle(color: AppColors.textPrimaryDark, fontWeight: FontWeight.bold),
         bodyLarge: const TextStyle(color: AppColors.textPrimaryDark),
         bodyMedium: const TextStyle(color: AppColors.textSecondaryDark),
       ),
-      elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.primary,
-          foregroundColor: Colors.white,
-          minimumSize: const Size(double.infinity, 50),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-        ),
+      appBarTheme: const AppBarTheme(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        centerTitle: false,
+        iconTheme: IconThemeData(color: AppColors.textPrimaryDark),
       ),
     );
   }

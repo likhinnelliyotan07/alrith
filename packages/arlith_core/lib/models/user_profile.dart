@@ -9,6 +9,9 @@ class UserProfile extends Equatable {
   final UserRole role;
   final bool isApproved;
   final DateTime createdAt;
+  final List<String>? classIds; // For students
+  final List<String>? subjectIds; // For students and teachers
+  final List<String>? assignedStudentIds; // For parents and teachers
 
   const UserProfile({
     required this.id,
@@ -18,6 +21,9 @@ class UserProfile extends Equatable {
     required this.role,
     this.isApproved = false,
     required this.createdAt,
+    this.classIds,
+    this.subjectIds,
+    this.assignedStudentIds,
   });
 
   factory UserProfile.fromJson(Map<String, dynamic> json) {
@@ -29,6 +35,9 @@ class UserProfile extends Equatable {
       role: UserRole.fromString(json['role'] as String),
       isApproved: json['is_approved'] as bool? ?? false,
       createdAt: DateTime.parse(json['created_at'] as String),
+      classIds: (json['class_ids'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      subjectIds: (json['subject_ids'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      assignedStudentIds: (json['assigned_student_ids'] as List<dynamic>?)?.map((e) => e as String).toList(),
     );
   }
 
@@ -38,12 +47,15 @@ class UserProfile extends Equatable {
       'email': email,
       'phone': phone,
       'full_name': fullName,
-      'role': role.name,
+      'role': role.toString().split('.').last,
       'is_approved': isApproved,
       'created_at': createdAt.toIso8601String(),
+      'class_ids': classIds,
+      'subject_ids': subjectIds,
+      'assigned_student_ids': assignedStudentIds,
     };
   }
 
   @override
-  List<Object?> get props => [id, email, phone, fullName, role, isApproved, createdAt];
+  List<Object?> get props => [id, email, phone, fullName, role, isApproved, createdAt, classIds, subjectIds, assignedStudentIds];
 }

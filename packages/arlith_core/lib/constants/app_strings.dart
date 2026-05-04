@@ -52,4 +52,65 @@ class AppStrings {
   static const String errorSignupFailed = 'Signup failed. Please try again.';
   static const String unauthorizedRole = 'Unauthorized: You do not have access to this app.';
   static const String pendingApproval = 'Your account is pending admin approval.';
+
+  // User Management
+  static const String allUsers = 'All Users';
+  static const String students = 'Students';
+  static const String teachers = 'Teachers';
+  static const String parents = 'Parents';
+  static const String assignToTeacher = 'Assign to Teacher';
+  static const String assignToParent = 'Assign to Parent';
+  static const String selectTeacher = 'Select Teacher';
+  static const String selectParent = 'Select Parent';
+  static const String assignSuccess = 'Assignment Successful';
+  static const String navigationHome = 'Home';
+  static const String navigationUsers = 'Users';
+  static const String navigationAssignments = 'Assignments';
+  static const String navigationProfile = 'Profile';
+  static const String navigationProgress = 'Progress';
+  static const String navigationSettings = 'Settings';
+
+  // Education Management
+  static const String classes = 'Classes';
+  static const String subjects = 'Subjects';
+  static const String addClass = 'Add Class';
+  static const String addSubject = 'Add Subject';
+  static const String className = 'Class Name';
+  static const String classType = 'Class Type';
+  static const String subjectName = 'Subject Name';
+  static const String editUser = 'Edit User';
+  static const String saveChanges = 'Save Changes';
+  static const String quickStats = 'Quick Stats';
+  static const String totalTeachers = 'Total Teachers';
+  static const String totalStudents = 'Total Students';
+  static const String totalParents = 'Total Parents';
+  static const String pendingApprovalsCount = 'Pending Approvals';
+  static const String moduleName = 'Module Name';
+  static const String addModule = 'Add Module';
+  static const String viewModules = 'View Modules';
+  static const String classContent = 'Class Content';
+  static const String topicTitle = 'Topic / Title';
+  static const String duration = 'Duration';
+  static const String attachments = 'Attachments';
+  static const String tags = 'Tags';
+  static const String noSubjectsFound = 'No subjects found for this class.';
+  static const String noModulesFound = 'No modules found for this subject.';
+  static const String noContentFound = 'No content found for this module.';
+  static const String active = 'Active';
+  static const String inactive = 'Inactive';
+  static const String status = 'Status';
+  static const String myCourses = 'My Courses';
+  static const String navigationLearning = 'Learning';
+  static const String learningProgress = 'Learning Progress';
+  static const String continueLearning = 'Continue Learning';
+  static const String hello = 'Hello';
+  static const String coursesContent = 'Courses Content';
+  static const String progressContent = 'Progress Content';
+  static const String cancel = 'Cancel';
+  static const String add = 'Add';
+  static const String save = 'Save';
+  static const String modules = 'Modules';
+  static const String created = 'Created';
+  static const String video = 'Video';
+  static const String pdf = 'PDF';
 }
